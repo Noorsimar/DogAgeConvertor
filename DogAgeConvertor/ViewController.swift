@@ -27,11 +27,24 @@ class ViewController: UIViewController {
         let age = dogAgeInHuman.text.toInt()!
         
         let constantMultiplier = 7
-        dogYearsDisplay.text = "\(age * constantMultiplier)" + " years In Dog's Age."
+        dogYearsDisplay.text = "\(age * constantMultiplier)" + " years In Human Age."
         dogYearsDisplay.textColor = UIColor.purpleColor()
         dogAgeInHuman.text = ""
         dogAgeInHuman.resignFirstResponder()
         
+    }
+    
+    @IBAction func convertToRealDogAgeButton(sender: UIButton) {
+        let doubleFromTextField = Double((dogAgeInHuman.text as NSString).doubleValue)
+        var realDogYears:Double
+        if doubleFromTextField > 2 {
+            realDogYears = (10.5 * 2) + (doubleFromTextField - 2) * 4
+        }
+        else {
+            realDogYears = doubleFromTextField * 10.5
+        }
+        dogYearsDisplay.text = "\(realDogYears)" + " Real Human Years"
+        dogAgeInHuman.resignFirstResponder()
     }
 
 }
